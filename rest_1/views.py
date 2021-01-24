@@ -9,6 +9,7 @@ class Get_users(generics.GenericAPIView):
     serializer_class = NewUserSerializer
     queryset = ''
     permission_classes = (IsAuthenticated,)
+    v = ''
     def get(self,request):
         obj = new_user.objects.filter(softdelete=False).all()
         serializer = GetUserSerializer(obj,many=True)
