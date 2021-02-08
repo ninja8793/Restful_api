@@ -1,4 +1,5 @@
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -13,7 +14,7 @@ SECRET_KEY = '@+v-$svf=3u0vwv31e)k!c9!l7l=@-6(2+9b!m4!hw-47%2$vf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1']
 
 
 # Application definition
@@ -75,7 +76,7 @@ WSGI_APPLICATION = 'restful_api.wsgi.application'
 DATABASES = {
 'default': {
 'ENGINE': 'django.db.backends.mysql',
-'NAME': 'restful_apidb',
+'NAME': 'rest_db',
 'USER': 'root',
 'PASSWORD':'Root',
 'HOST': '',
@@ -138,3 +139,21 @@ CACHES = {
         'LOCATION': 'my_cache_table',
     }
 }
+AUTH_USER_MODEL = 'rest_1.User'
+# SIMPLE_JWT = {
+#     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+#     'BLACKLIST_AFTER_ROTATION': True,
+#     'ALGORITHM': 'HS256',
+#     'SIGNING_KEY': SECRET_KEY,
+#     'USER_ID_FIELD': 'user.id',
+#     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',)
+# }
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'nitingharge87@gmail.com'
+EMAIL_HOST_PASSWORD = 'Radha@9011'
+#
+# EMAIL_HOST_USER = 'nitingharge8793@gmail.com'
+# EMAIL_HOST_PASSWORD = 'Dexter@9527'
